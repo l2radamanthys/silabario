@@ -1,59 +1,56 @@
-// Grupos consonánticos inseparables en español
-const inseparables = new Set([
-  "bl","br","cl","cr","dr","fl","fr","gl","gr","pl","pr","tr"
-]);
-
-function separarSilabasOld(palabra) {
+function separarSilabas(palabra) {
   palabra = palabra.toLowerCase();
   const vocales = "aeiouáéíóúü";
+  const inseparables = ["bl","br","cl","cr","dr","fl","fr","gl","gr","pl","pr","tr"];
+  
   let silabas = [];
-  let actual = "";
+  let i = 0;
 
-  for (let i = 0; i < palabra.length; i++) {
-    actual += palabra[i];
+  while (i < palabra.length) {
+    let silaba = palabra[i];
+    i++;
 
-    if (vocales.includes(palabra[i])) {
-      let j = i + 1;
-      let consonantes = "";
+    // Si empieza con consonante, buscar la vocal siguiente
+    while (i < palabra.length && !vocales.includes(palabra[i])) {
+      silaba += palabra[i];
+      i++;
+    }
 
-      // Acumular consonantes después de la vocal
-      while (j < palabra.length && !vocales.includes(palabra[j])) {
-        consonantes += palabra[j];
-        j++;
-      }
+    // Agregar la vocal al final de la sílaba
+    if (i < palabra.length && vocales.includes(palabra[i])) {
+      silaba += palabra[i];
+      i++;
+    }
 
-      // Reglas de separación
-      if (consonantes.length === 0) {
-        silabas.push(actual);
-        actual = "";
-      } else if (consonantes.length === 1) {
-        silabas.push(actual);
-        actual = "";
-      } else if (consonantes.length === 2) {
-        if (inseparables.has(consonantes)) {
-          silabas.push(actual);
-          actual = "";
-        } else {
-          silabas.push(actual + consonantes[0]);
-          actual = "";
-          j -= 1;
-        }
+    // Revisar consonantes que siguen y aplicar reglas
+    let cons = "";
+    while (i < palabra.length && !vocales.includes(palabra[i])) {
+      cons += palabra[i];
+      i++;
+    }
+
+    if (cons.length === 0) {
+      silabas.push(silaba);
+    } else if (cons.length === 1) {
+      silabas.push(silaba);
+      i -= 1; // dejar consonante para la siguiente sílaba
+    } else if (cons.length === 2) {
+      if (inseparables.includes(cons)) {
+        silabas.push(silaba);
       } else {
-        silabas.push(actual + consonantes[0]);
-        actual = "";
-        j -= consonantes.length - 1;
+        silabas.push(silaba + cons[0]);
+        i -= 1; // segunda consonante para la siguiente sílaba
       }
-
-      i = j - 1;
+    } else {
+      silabas.push(silaba + cons[0]);
+      i -= cons.length - 1;
     }
   }
 
-  if (actual) silabas.push(actual);
   return silabas;
 }
 
-
-function separarSilabas(palabra) {
+function separarSilabasRegex(palabra) {
   palabra = palabra.toLowerCase();
 
   // Expresión regular para sílabas españolas

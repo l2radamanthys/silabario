@@ -7,13 +7,13 @@ function InputPalabra({ palabra, setPalabra }) {
 
   return (
     <React.Fragment>
-      <p>Ingrese la palabra a separar en silabas</p>
-      <input 
-        value={palabra} 
-        onChange={onPalabraChange}/>
-      <button>Separar</button>
-
-      <p>Palabra: {palabra}</p>
+      <div className="max-w-128 mx-auto p-4">
+        <p className="p-4 text-center text-xl">Ingrese la palabra a separar en sílabas:</p>
+        <input
+          className="w-full text-center px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          value={palabra} 
+          onChange={onPalabraChange}/>
+      </div>
     </React.Fragment>
   )
 }

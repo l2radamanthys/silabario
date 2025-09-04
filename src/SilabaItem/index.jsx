@@ -1,7 +1,11 @@
 import React from "react";
 
-function SilabaItem() {
-  return;
+function SilabaItem({ silaba }) {
+  return (
+    <div>
+      {silaba}
+    </div>
+  );
 }
 
 export { SilabaItem }

@@ -2,38 +2,27 @@ import React from "react"
 import { InputPalabra } from '../InputPalabra';
 import { SilabaItem } from "../SilabaItem";
 import { ListadoSilabas } from "../ListadoSilabas";
-import { separarSilabas } from "../utils";
 import { CenteredBlock } from "../CenteredBlock";
 import { Header } from "../Header";
 import { Modal } from "../Modal";
 import { PalabraForm } from "../PalabraForm";
 import { BotonAgregar } from "../BotonAgregar";
-
-const initalValue = [{
-  "pelotas": "pe lo tas",
-}];
+import { useSilabas } from "./useSilabas";
 
 function App() {
-  const [diccionarioSilabas, setDiccionarioSilabas] = React.useState(initalValue);
-  const [palabra, setPalabra] = React.useState("Pelota");
-  const [isOpenModal, setIsOpenModal] = React.useState(false);
-  
-  const toggleModal = () => {
-    setIsOpenModal(!isOpenModal);
-  }
+  const {
+    diccionario,
+    addEntry,
+    palabra, 
+    setPalabra,
+    isOpenModal, 
+    setIsOpenModal,
+    toggleModal,
+    getSilabas,
+  } = useSilabas();
 
-  const addEntry = (silabas) => {
-    const keyName = silabas.join("").toLowerCase();
-    const newEntry = { [keyName]: silabas.join(" ") };
-    setDiccionarioSilabas([...diccionarioSilabas, newEntry]);
-  };
-
-  let silabas = diccionarioSilabas.find(item => item[palabra.toLowerCase()])
-  if (!silabas) {
-    silabas = separarSilabas(palabra);
-  } else {
-    silabas = silabas[palabra.toLowerCase()].split(" ");
-  }
+  const silabas = getSilabas(palabra, diccionario);
+  console.log(silabas);
 
   return (
     <React.Fragment>

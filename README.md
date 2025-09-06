@@ -34,7 +34,7 @@ Por eso, se incluye la opción de **ajustar manualmente** las divisiones generad
 clona el repositorio e instala las dependencias:
 
 ```bash
-git clone https://github.com/usuario/silabario.git
+git clone https://github.com/l2radamanthys/silabario.git
 cd silabario
 npm install
 ```

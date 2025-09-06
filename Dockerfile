@@ -12,7 +12,7 @@ RUN npm run build
 
 # Etapa 2: Servir con Nginx
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY /app/dist /usr/share/nginx/html
 
 # Configuración básica de Nginx para React (SPA)
 # COPY nginx.conf /etc/nginx/conf.d/default.conf

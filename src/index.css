@@ -2,5 +2,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Patrick Hand", sans-serif; 
+  --color-primary: #8f4c38;
+  --color-secondary: #77574e;
+  --color-error: #ba1a1a;
+  --font-primary: "Playfair Display", serif;
+  --font-display: "Patrick Hand", sans-serif;
 }

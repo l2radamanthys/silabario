@@ -17,7 +17,7 @@ function PalabraForm({ listadoSilabas, addEntry, setOpenModal }) {
 
   return (
     <form className="" onSubmit={onSubmit}>
-      <div className="mb-4">
+      <div className="mb-4 text-center">
         <label htmlFor="" className="font-primary">Ingrese las silabas separadas por espacio:</label>
         <input 
           type="text"

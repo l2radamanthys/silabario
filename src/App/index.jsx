@@ -7,6 +7,7 @@ import { CenteredBlock } from "../CenteredBlock";
 import { Header } from "../Header";
 import { Modal } from "../Modal";
 import { PalabraForm } from "../PalabraForm";
+import { BotonAgregar } from "../BotonAgregar";
 
 const initalValue = [{
   "pelotas": "pe lo tas",
@@ -44,18 +45,7 @@ function App() {
             <SilabaItem silaba={silaba} />
           ))}
         </ListadoSilabas>
-        {!!silabas.length &&
-          <p className="text-center font-primary text-secondary italic text-s">
-            ¿No coinciden las silabas con las palabras? Podes&nbsp;
-            <button 
-              className="font-bold pointer text-primary" 
-              onClick={toggleModal}
-            >
-              Agregarla
-            </button>
-            &nbsp;al diccionario personalizado.
-          </p>
-        }
+        {!!silabas.length && <BotonAgregar onAgregarEvent={toggleModal} />}
       </CenteredBlock>
 
       <Modal isOpen={isOpenModal} toggleModal={toggleModal}>

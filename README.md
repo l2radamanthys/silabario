@@ -2,7 +2,7 @@
 
 Aplicación web simple para **generar sílabas a partir de una palabra**, pensada como apoyo en la **enseñanza de la lectura**.
 
-👉 Puedes probarla en línea github pages [l2radamanthys.github.io/silabario](l2radamanthys.github.io/silabario)
+👉 Puedes probarla en línea github pages [l2radamanthys.github.io/silabario](l2radamanthys.github.io/silabario/)
 
 ![Captua de pantalla](./screenshot.png)
 

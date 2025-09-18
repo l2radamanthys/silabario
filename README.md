@@ -1,14 +1,15 @@
 # 📖 Silabario
 
-Aplicación web simple para **generar sílabas a partir de una palabra**, pensada como apoyo en la **enseñanza de la lectura**.  
+Aplicación web simple para **generar sílabas a partir de una palabra**, pensada como apoyo en la **enseñanza de la lectura**.
 
-👉 Puedes probarla en línea aquí: [silabario.datadev-and-code.ar](https://silabario.datadev-and-code.ar)
+👉 Puedes probarla en línea aquí: [silabario.datadev-and-code.ar](https://silabario.datadev-and-code.ar) o desde github pages [l2radamanthys.github.io/silabario](l2radamanthys.github.io/silabario)
 
 ![Captua de pantalla](./screenshot.png)
 
 ---
 
 ## ✨ Características
+
 - Separa palabras en sílabas de forma automática.
 - Posibilidad de **corregir manualmente** la separación en caso de errores.
 - Enfoque educativo para ayudar en el aprendizaje de la lectura.
@@ -16,12 +17,14 @@ Aplicación web simple para **generar sílabas a partir de una palabra**, pensad
 ---
 
 ## ⚠️ Limitaciones
+
 El **algoritmo de separación silábica** no es 100% exacto, por lo que en algunos casos puede fallar.  
 Por eso, se incluye la opción de **ajustar manualmente** las divisiones generadas.
 
 ---
 
 ## 🚀 Tecnologías utilizadas
+
 - [React](https://react.dev/) (interfaz)
 - [Vite](https://vitejs.dev/) (bundler y build)
 - [Tailwind CSS](https://tailwindcss.com/) (estilos)
@@ -29,7 +32,6 @@ Por eso, se incluye la opción de **ajustar manualmente** las divisiones generad
 ---
 
 ## 📦 Instalación y uso
-
 
 clona el repositorio e instala las dependencias:
 
@@ -64,5 +66,3 @@ dokku apps:create silabario
 git remote add dokku dokku@[your-server-url]:silabario
 git push dokku main:master -f
 ```
-
-
